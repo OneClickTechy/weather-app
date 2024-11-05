@@ -9,7 +9,7 @@ const SearchBar = () => {
         value={cityname}
         onChange={(e) => setCityname(e.target.value)}
         placeholder="search city name"
-        className="md:w-96 w-48"
+        className="lg:w-96 md:w-80 w-48"
       />
       <button type="submit">Search</button>
     </form>
