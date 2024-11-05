@@ -64,6 +64,7 @@ export const GeoProvider = ({ children }) => {
     handleSearch,
     handleSearchResClick,
     showResults,
+    setShowResults,
     currentWeatherData,
     currentWeatherError,
     isCurrentWeatherLoading,

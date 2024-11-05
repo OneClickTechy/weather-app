@@ -3,7 +3,7 @@ import Forecast from "./forecast/Forecast";
 
 const Main = () => {
   return (
-    <main>
+    <main className="grow flex items-start w-full justify-center rounded-lg p-4">
       <CurrentWeather />
       <Forecast />
     </main>

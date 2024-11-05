@@ -7,13 +7,13 @@ import ThemeToggler from "./themeToggler/ThemeToggler";
 const Header = () => {
   const { showResults } = useGeoContext();
   return (
-    <header className="relative flex justify-center items-center p-4">
+    <header className="relative flex justify-center items-center p-4 flex-row md:flex-col flex-wrap gap-2">
       <Logo />
-      <div className="relative">
+      <ThemeToggler />
+      <div className="">
         <SearchBar />
         {showResults ? <SearchDropdown /> : null}
       </div>
-      <ThemeToggler />
     </header>
   );
 };

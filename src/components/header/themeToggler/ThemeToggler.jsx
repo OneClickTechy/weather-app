@@ -5,14 +5,13 @@ const ThemeToggler = () => {
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
-    console.log(theme)
   }, [theme]);
   const handleToggleTheme = () => {
     setTheme(theme==="light" ? "dark" : "light");
   };
   return (
     <>
-      <button onClick={handleToggleTheme} className="absolute right-4 top-5" >change theme: {theme}</button>
+      <button onClick={handleToggleTheme} className="md:absolute md:right-4 md:top-5" >change theme: {theme}</button>
         
     </>
   )
