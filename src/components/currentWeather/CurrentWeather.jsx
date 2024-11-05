@@ -24,15 +24,20 @@ const CurrentWeather = () => {
 
   return (
     <div className="current-weather-container container">
-      {isCurrentWeatherLoading && <div>Loading...</div>}
+      {isCurrentWeatherLoading && <div>
+         
+<svg viewBox="25 25 50 50">
+  <circle r="20" cy="50" cx="50"></circle>
+</svg>
+        Loading...</div>}
       {currentWeatherError && <div>{`Error: ${currentWeatherError}`}</div>}
       {!currentWeatherData &&
         !isCurrentWeatherLoading &&
         !currentWeatherError && <div>Search any city</div>}
       {currentWeatherData && (
-        <div>
-          <p>{toLocaleDateAndTime(dt)}</p>
-          <p>
+    <div className="current-weather-subcontainer">
+          <p className="cw-date">{toLocaleDateAndTime(dt)}</p>
+          <p className="cw-areaname">
             {name}, {sys?.country}
           </p>
 

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useGetGeoDataQuery } from "../app/services/geoSlice";
-import { useGetCurrentWeatherQuery } from "../app/services/currentWeatherSlice";
+import { useGetCurrentWeatherQuery } from "../app/services/weatherSlice";
 
 const geoContext = createContext(null);
 
@@ -39,7 +39,6 @@ export const GeoProvider = ({ children }) => {
     error: currentWeatherError,
     isLoading: isCurrentWeatherLoading,
   } = useGetCurrentWeatherQuery({ lat, lon }, { skip: !lat || !lon });
-  
 
   const contextValue = {
     cityname,
