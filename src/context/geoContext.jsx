@@ -1,6 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useGetGeoDataQuery } from "../app/services/geoSlice";
-import { useGetCurrentWeatherQuery } from "../app/services/weatherSlice";
+import {
+  useGetCurrentWeatherQuery,
+  useGetForecastQuery,
+} from "../app/services/weatherSlice";
 
 const geoContext = createContext(null);
 
@@ -10,6 +13,8 @@ export const GeoProvider = ({ children }) => {
 
   const [geoCoords, setGeoCoords] = useState({});
   const [showResults, setShowResults] = useState(false);
+
+  const [unit, setUnit] = useState("Imperial"); // "Metric" for °C, m/s; "Imperial" for °F, mph
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -40,6 +45,12 @@ export const GeoProvider = ({ children }) => {
     isLoading: isCurrentWeatherLoading,
   } = useGetCurrentWeatherQuery({ lat, lon }, { skip: !lat || !lon });
 
+  const {
+    data: forecastData,
+    error: forecastError,
+    isLoading: isForecastLoading,
+  } = useGetForecastQuery({ lat, lon }, { skip: !lat || !lon });
+
   const contextValue = {
     cityname,
     setCityname,
@@ -54,6 +65,11 @@ export const GeoProvider = ({ children }) => {
     currentWeatherData,
     currentWeatherError,
     isCurrentWeatherLoading,
+    forecastData,
+    forecastError,
+    isForecastLoading,
+    unit,
+    setUnit,
   };
   return (
     <geoContext.Provider value={contextValue}>{children}</geoContext.Provider>

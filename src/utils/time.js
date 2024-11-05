@@ -1,15 +1,21 @@
-import { format } from 'date-fns';
+import { format } from "date-fns";
 
 export const toLocaleDateAndTime = (dt) => {
-    // Convert Unix timestamp to UTC date
-    const utcDate = new Date(dt * 1000);
+  // Convert Unix timestamp to UTC date
+  const utcDate = new Date(dt * 1000);
 
-    // Format the date as per this format "Nov 5, 12:34am"
-    const formattedDate = format(utcDate, 'MMM d, h:mma');
+  // Format the date as per this format "Nov 5, 12:34am"
+  const formattedDate = format(utcDate, "MMM d, h:mma");
 
-    console.log(formattedDate); // Outputs in the desired format
-    return formattedDate;
+  return formattedDate;
 };
 
+export const toLocalDayDate = (dt) => {
+  // Convert Unix timestamp to UTC date
+  const utcDate = new Date(dt * 1000);
+  const formattedDate = format(utcDate, "EEE, MMM dd");
+  return formattedDate;
+};
 // Usage
-toLocaleDateAndTime(1730750699);
+// toLocaleDateAndTime(1730826000);
+// toLocalDayDate(1730826000);

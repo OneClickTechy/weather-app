@@ -1,4 +1,4 @@
-import { useGeoContext } from "../../context/geoContext.jsx";
+import { useGeoContext } from "../../../context/geoContext.jsx";
 
 const SearchBar = () => {
   const { cityname, setCityname, handleSearch } = useGeoContext();

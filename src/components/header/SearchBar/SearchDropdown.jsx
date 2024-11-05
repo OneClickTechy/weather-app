@@ -1,4 +1,5 @@
-import { useGeoContext } from "../../context/geoContext";
+import { useGeoContext } from "../../../context/geoContext";
+
 
 
 const SearchDropdown = () => {

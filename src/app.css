@@ -170,3 +170,20 @@ circle {
     stroke-dashoffset: -125px;
   }
 }
+
+.daily-forecast{
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  /* flex-direction: column; */
+}
+.daily-forecast li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc; /* Add a bottom border */
+}
+
+/* .daily-forecast li:last-child {
+  border-bottom: none; /* Remove the border from the last item */
+} */

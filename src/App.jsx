@@ -1,18 +1,14 @@
-import CurrentWeather from "./components/currentWeather/CurrentWeather.jsx";
-import SearchBar from "./components/SearchBar/SearchBar";
-import SearchDropdown from "./components/SearchBar/SearchDropdown.jsx";
 import "./app.css";
-import ThemeToggler from "./components/themeToggler/ThemeToggler.jsx";
 import { useGeoContext } from "./context/geoContext.jsx";
+import Header from "./components/header/Header.jsx";
+import Main from "./components/main/Main.jsx";
 
 const App = () => {
   const { showResults } = useGeoContext();
   return (
     <div className="app-container">
-      <ThemeToggler />
-      <SearchBar />
-      {showResults ? <SearchDropdown /> : null}
-      <CurrentWeather />
+      <Header />
+      <Main />
     </div>
   );
 };

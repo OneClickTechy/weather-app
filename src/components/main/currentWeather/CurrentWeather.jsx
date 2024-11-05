@@ -1,15 +1,19 @@
 import { useState } from "react";
-import { useGeoContext } from "../../context/geoContext";
-import { toLocaleDateAndTime } from "../../utils/time";
-import { kelvintocelcious, kelvintoFahrenheit } from "../../utils/kelvinto";
-import { deg2dir } from "../../utils/degreetodirection";
-import { mpstomph } from "../../utils/speedConverter";
-import { dewConverter } from "../../utils/dewValue";
+import { useGeoContext } from "../../../context/geoContext";
+import { toLocaleDateAndTime } from "../../../utils/time";
+import { kelvintocelcious, kelvintoFahrenheit } from "../../../utils/kelvinto";
+import { deg2dir } from "../../../utils/degreetodirection";
+import { mpstomph } from "../../../utils/speedConverter";
+import { dewConverter } from "../../../utils/dewValue";
 
 const CurrentWeather = () => {
-  const [unit, setUnit] = useState("Imperial"); // "Metric" for °C, m/s; "Imperial" for °F, mph
-  const { currentWeatherData, currentWeatherError, isCurrentWeatherLoading } =
-    useGeoContext();
+  const {
+    unit,
+    setUnit,
+    currentWeatherData,
+    currentWeatherError,
+    isCurrentWeatherLoading,
+  } = useGeoContext();
   console.log(isCurrentWeatherLoading);
 
   // Destructure data with optional chaining
@@ -24,18 +28,20 @@ const CurrentWeather = () => {
 
   return (
     <div className="current-weather-container container">
-      {isCurrentWeatherLoading && <div>
-         
-<svg viewBox="25 25 50 50">
-  <circle r="20" cy="50" cx="50"></circle>
-</svg>
-        Loading...</div>}
+      {isCurrentWeatherLoading && (
+        <div>
+          <svg viewBox="25 25 50 50">
+            <circle r="20" cy="50" cx="50"></circle>
+          </svg>
+          Loading...
+        </div>
+      )}
       {currentWeatherError && <div>{`Error: ${currentWeatherError}`}</div>}
       {!currentWeatherData &&
         !isCurrentWeatherLoading &&
         !currentWeatherError && <div>Search any city</div>}
       {currentWeatherData && (
-    <div className="current-weather-subcontainer">
+        <div className="current-weather-subcontainer">
           <p className="cw-date">{toLocaleDateAndTime(dt)}</p>
           <p className="cw-areaname">
             {name}, {sys?.country}
