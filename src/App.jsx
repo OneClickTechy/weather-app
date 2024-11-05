@@ -1,4 +1,3 @@
-import "./app.css";
 import { useGeoContext } from "./context/geoContext.jsx";
 import Header from "./components/header/Header.jsx";
 import Main from "./components/main/Main.jsx";

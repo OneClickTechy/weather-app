@@ -19,6 +19,8 @@ const Forecast = () => {
       {forecastError && <p>{`Error: ${forecastError}`}</p>}
       {isForecastLoading && <p>Loading....</p>}
       {forecastData && daily && (
+        <>
+        <h1>8-day forecast</h1>
         <ul className="daily-forecast container">
           {daily.map((item, index) => (
             <li key={index}>
@@ -38,6 +40,7 @@ const Forecast = () => {
             </li>
           ))}
         </ul>
+        </>
       )}
     </div>
   );
