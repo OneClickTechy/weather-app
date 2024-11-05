@@ -19,7 +19,9 @@ export const GeoProvider = ({ children }) => {
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchCity(cityname);
-    setShowResults(true);
+    if(cityname){
+      setShowResults(true);
+    }
   };
   // console.log(geoCoords);
   const handleSearchResClick = (lat, lon) => {
