@@ -27,7 +27,7 @@ const CurrentWeather = () => {
       : `${kelvintoFahrenheit(temp)} °F`;
 
   return (
-    <div className="current-weather-container container">
+    <div className="">
       {isCurrentWeatherLoading && (
         <div>
           <svg viewBox="25 25 50 50">
@@ -41,16 +41,16 @@ const CurrentWeather = () => {
         !isCurrentWeatherLoading &&
         !currentWeatherError && <div>Search any city</div>}
       {currentWeatherData && (
-        <div className="current-weather-subcontainer">
-          <p className="cw-date">{toLocaleDateAndTime(dt)}</p>
-          <p className="cw-areaname">
+        <div className="">
+          <p className="">{toLocaleDateAndTime(dt)}</p>
+          <p className="">
             {name}, {sys?.country}
           </p>
 
           <img
             src={`http://openweathermap.org/img/wn/${weather?.[0]?.icon}@2x.png`}
             alt={weather?.[0]?.description || "weather icon"}
-            className="weather-icon"
+            className=""
           />
 
           <p>{weather?.[0]?.description || "--"}</p>

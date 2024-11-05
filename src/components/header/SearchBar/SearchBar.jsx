@@ -3,7 +3,7 @@ import { useGeoContext } from "../../../context/geoContext.jsx";
 const SearchBar = () => {
   const { cityname, setCityname, handleSearch } = useGeoContext();
   return (
-    <form onSubmit={handleSearch} className="container search-container">
+    <form onSubmit={handleSearch} className="flex justify-center items-center md:gap-4">
       <input
         type="text"
         value={cityname}

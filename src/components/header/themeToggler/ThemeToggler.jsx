@@ -12,7 +12,7 @@ const ThemeToggler = () => {
   };
   return (
     <>
-      <button onClick={handleToggleTheme} className="button-default" >change theme: {theme}</button>
+      <button onClick={handleToggleTheme} className="absolute right-4 top-5" >change theme: {theme}</button>
         
     </>
   )
