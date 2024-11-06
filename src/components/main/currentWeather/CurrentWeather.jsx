@@ -18,15 +18,12 @@ import { GiBrainFreeze } from "react-icons/gi";
 import { BsFillSunriseFill, BsFillSunsetFill } from "react-icons/bs";
 
 const CurrentWeather = () => {
-  const {
-    unit,
-    currentWeatherData,
-  } = useGeoContext();
-  console.log(currentWeatherData)
+  const { unit, currentWeatherData } = useGeoContext();
+  console.log(currentWeatherData);
   // Destructure data with optional chaining
   const { dt, name, sys, weather, main, wind, visibility } =
     currentWeatherData || {};
-
+  console.log(wind.deg);
   // Unit conversion helper
   const getTemperature = (temp) =>
     unit === "Metric"
@@ -67,7 +64,7 @@ const CurrentWeather = () => {
           <div className="leading-10 bg-background flex justify-center items-center flex-wrap md:max-w-[60%] gap-4 sm:p-4 py-4 rounded-2xl w-full ">
             <WeatherData
               icon={WiHumidity}
-              iconclass={"text-4xl text-[#4FC3F7]"}
+              iconclass={`text-4xl text-[#4FC3F7]`}
               label={"Humidity"}
               value={`${main?.humidity ?? "--"} %`}
             />
@@ -89,7 +86,8 @@ const CurrentWeather = () => {
             <WeatherData
               label={"Wind Direction"}
               icon={MdNavigation}
-              iconclass={"text-[#6AB187] text-2xl"}
+              iconclass={`text-[#6AB187] text-2xl`}
+              iconstyle={{ transform: `rotate(${wind.deg}deg)` }}
               value={`${deg2dir(wind?.deg) || "--"}`}
             />
 
@@ -135,8 +133,18 @@ const CurrentWeather = () => {
               )}
             />
 
-            <WeatherData label={"Sunrise"} icon={BsFillSunriseFill} iconclass={"text-[#FFD180] text-2xl"} value={`${toLocalTime(sys.sunrise)}`}/>
-            <WeatherData label={"Sunset"} icon={BsFillSunsetFill} iconclass={"text-[#FFB74D] text-2xl"} value={`${toLocalTime(sys.sunset)}`}/>
+            <WeatherData
+              label={"Sunrise"}
+              icon={BsFillSunriseFill}
+              iconclass={"text-[#FFD180] text-2xl"}
+              value={`${toLocalTime(sys.sunrise)}`}
+            />
+            <WeatherData
+              label={"Sunset"}
+              icon={BsFillSunsetFill}
+              iconclass={"text-[#FFB74D] text-2xl"}
+              value={`${toLocalTime(sys.sunset)}`}
+            />
           </div>
         </div>
       )}
