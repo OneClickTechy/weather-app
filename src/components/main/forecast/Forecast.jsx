@@ -15,13 +15,13 @@ const Forecast = () => {
       : `${Math.round(kelvintoFahrenheit(temp))} °F`;
 
   return (
-    <div className="col-start-6 col-end-[-1] bg-surface p-4 rounded-2xl">
+    <div className="w-full col-start-6 col-end-[-1] bg-surface p-4 rounded-2xl shadow-xl shadow-shadow">
       {forecastError && <p>{`Error: ${forecastError}`}</p>}
       {isForecastLoading && <p>Loading....</p>}
       {forecastData && daily && (
         <>
           <h1 className="text-4xl text-center font-bold ">8 day forecast</h1>
-          <ul className=" divide-y-2 divide-shadow">
+          <ul className=" divide-y-2 divide-shadow sm:text-base text-xs text-nowrap">
             {daily.map((item, index) => (
               <li key={index} className="flex justify-evenly items-center">
                 {toLocalDayDate(item.dt)}
