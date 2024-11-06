@@ -3,6 +3,7 @@ import { useGetGeoDataQuery } from "../app/services/geoSlice";
 import {
   useGetCurrentWeatherQuery,
   useGetForecastQuery,
+  useGetHourlyWeatherQuery
 } from "../app/services/weatherSlice";
 
 const geoContext = createContext(null);
@@ -49,7 +50,9 @@ export const GeoProvider = ({ children }) => {
   } = useGetGeoDataQuery(searchcity, {
     skip: !searchcity,
   });
+
   const { lat, lon } = geoCoords || {};
+
   const {
     data: currentWeatherData,
     error: currentWeatherError,
@@ -61,6 +64,9 @@ export const GeoProvider = ({ children }) => {
     error: forecastError,
     isLoading: isForecastLoading,
   } = useGetForecastQuery({ lat, lon }, { skip: !lat || !lon });
+
+  const res = useGetHourlyWeatherQuery({ lat, lon }, {skip: !lat || !lon});
+  console.log(res);
 
   const contextValue = {
     cityname,
@@ -84,6 +90,7 @@ export const GeoProvider = ({ children }) => {
     setUnit,
     handleUnit,
   };
+
   return (
     <geoContext.Provider value={contextValue}>{children}</geoContext.Provider>
   );
