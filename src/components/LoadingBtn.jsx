@@ -13,7 +13,7 @@ const LoadingBtn = () => {
           className="animate-spin h-5 w-5 mr-3 text-white"
         >
           <circle
-            strokeWwidth="4"
+            strokeWidth="4"
             stroke="currentColor"
             r="10"
             cy="12"

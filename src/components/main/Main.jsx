@@ -15,7 +15,7 @@ const Main = () => {
   } = useGeoContext();
   console.log(currentWeatherData);
   return (
-    <main className="grow min-h-screen w-full rounded-lg p-4 lg:grid lg:grid-cols-8 lg:grid-flow-row-dense flex flex-col justify-center sm:items-start justify-items-center content-center gap-2">
+    <main className="grow min-h-screen w-full rounded-lg p-4 lg:grid lg:grid-cols-8 lg:grid-flow-col flex flex-col justify-center sm:items-start justify-items-center content-center gap-2">
       {!currentWeatherData &&
         !isCurrentWeatherLoading &&
         !currentWeatherError && (

@@ -31,12 +31,12 @@ const CurrentWeather = () => {
       : `${kelvintoFahrenheit(temp)} °F`;
 
   return (
-    <div className="primary-container flex justify-center items-center bg-surface rounded-2xl p-4  md:col-start-1 md:col-end-6 shadow-xl shadow-shadow">
+    <div className="primary-container flex justify-center items-center bg-surface rounded-2xl p-4 lg:row-start-2 lg:row-end-2 lg:col-start-1 lg:col-end-6 shadow-xl shadow-shadow">
       {currentWeatherData && (
-        <div className="secondary-container flex flex-wrap justify-center items-center  gap-2 w-full ">
+        <div className="w-full secondary-container flex lg:content-center  flex-wrap justify-center items-center  gap-2  ">
           <div className="self-start bg-background  flex justify-center items-center flex-col p-4 rounded-2xl">
-            <p className="text-primary">{toLocaleDateAndTime(dt)}</p>
-            <p className="text-secondary text-4xl">
+            <p className="text-text-primary">{toLocaleDateAndTime(dt)}</p>
+            <p className="text-text-secondary text-4xl">
               {name}, {sys?.country}
             </p>
             <figure>
@@ -50,7 +50,7 @@ const CurrentWeather = () => {
               </figcaption>
             </figure>
 
-            <h2 className="text-primary font-bold text-3xl">
+            <h2 className="text-text-primary font-bold text-3xl">
               {getTemperature(main?.temp)}
             </h2>
 
@@ -61,7 +61,7 @@ const CurrentWeather = () => {
               value={`${getTemperature(main?.feels_like)}`}
             />
           </div>
-          <div className="leading-10 bg-background flex justify-center items-center flex-wrap md:max-w-[60%] gap-4 sm:p-4 py-4 rounded-2xl w-full ">
+          <div className="leading-10 bg-background flex  justify-center items-center flex-wrap md:max-w-[60%] gap-4 sm:p-4 py-4 rounded-2xl w-full ">
             <WeatherData
               icon={WiHumidity}
               iconclass={`text-4xl text-[#4FC3F7]`}

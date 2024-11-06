@@ -7,23 +7,23 @@ const Footer = () => {
     <footer className="text-text-primary">
       <div className="footer-content">
         <p>
-          &copy; {year} <span className="text-primary">{"Live Weather"}</span>.
+          &copy; {year} <span className="text-accent">{"Live Weather"}</span>.
           All rights reserved.
         </p>
         <p>
           This website developed by{" "}
-          <a href="https://github.com/OneClickTechy" className="text-primary">
+          <a href="https://github.com/OneClickTechy" className="text-accent">
             Jeyapandi(OneClickTechy)
           </a>
         </p>
         
         <div className="social-media flex gap-4">
-          <a href="" target="_blank">
+          <a href="https://www.linkedin.com/in/oneclicktechy/" target="_blank">
             <FaLinkedin />
           </a>{" "}
           <a
             href="https://github.com/OneClickTechy"
-            className=""
+            
             target="_blank"
           >
             <FaGithub />
@@ -33,7 +33,7 @@ const Footer = () => {
           Powered by{" "}
           <a
             href="https://openweathermap.org/"
-            className="text-secondary font-semibold"
+            className="text-accent font-semibold"
           >
             openweathermap
           </a>

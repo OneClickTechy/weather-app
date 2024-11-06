@@ -3,14 +3,19 @@
 @tailwind utilities;
 
 /* Dark Theme */
-/* Dark Theme */
 :root[data-theme="dark"] {
-  --color-primary: #8ab4f8;
+  --color-btn-primary-bg: #083c91;
+  --color-btn-primary-text: #ffffff;
+  --color-btn-secondary-bg: #d9e3f0; /* Light, softer shade */
+--color-btn-secondary-text: #083c91; /* Matches primary background */
+
+
+  --color-primary: #083c91;
   --color-secondary: #a188a6;
   --color-accent: #f28c8c;
   --color-background: #121212;
   --color-surface: #1e1e1e;
-  --color-text-primary: #ededed;
+  --color-text-primary: #ffffff;
   --color-text-secondary: #b0b0b0;
   --color-shadow: rgba(0, 0, 0, 0.6); /* Dark shadow color */
   --color-opp-surface: #ffffff;
@@ -18,25 +23,28 @@
 
 /* Light Theme */
 :root[data-theme="light"] {
-  --color-primary: #4a90e2;
-  --color-secondary: #7c4dff;
-  --color-accent: #ff6f61;
-  --color-background: #f5f5f5;
-  --color-surface: #ffffff;
-  --color-text-primary: #333333;
-  --color-text-secondary: #555555;
+  --color-btn-primary-bg: #061323;
+  --color-btn-primary-text: #bfbfbf;
+  --color-btn-secondary-bg: #bfbfbf; /* Light, neutral shade to contrast primary */
+--color-btn-secondary-text: #061323; /* Matches primary background for consistency */
+
+
+  --color-primary: #061323;
+  --color-secondary: #bfa8ff;
+  --color-accent: #7a0a00;
+  --color-background: #ffffff;
+  --color-surface: #cccccc;
+  --color-text-primary: #000000;
+  --color-text-secondary: #3800d1;
   --color-shadow: rgba(0, 0, 0, 0.2); /* Light shadow color */
   --color-opp-surface: #1e1e1e;
 }
-@layer components{
+@layer components {
   .btn-primary {
-    @apply transition-colors duration-300 ease-in-out bg-primary text-text-primary px-4 py-2 rounded-lg hover:bg-secondary hover:text-surface;
+    @apply transition-colors duration-300 ease-in-out bg-btn-primary-bg text-btn-primary-text px-4 py-2 rounded-lg hover:bg-secondary hover:text-surface;
   }
 }
 @layer base {
-  button {
-    
-  }
   input[type="text"] {
     @apply transition-colors duration-300 ease-in-out border-primary border rounded-md p-[10px] bg-surface;
   }

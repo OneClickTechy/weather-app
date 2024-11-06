@@ -11,6 +11,7 @@ const SearchDropdown = () => {
     handleSearchResClick,
     showResults,
     setShowResults,
+    cityname
   } = useGeoContext();
 
   useOutsideClick(dropdownRef, () => setShowResults(!showResults));
@@ -20,9 +21,9 @@ const SearchDropdown = () => {
 
   if (geoError) return <div className="">{geoError}</div>;
   if (isGeoLoading)
-    return <div className="text-4xl text-[red]/60">{isGeoLoading}</div>;
-  if (!geoError && !isGeoLoading && geoData && geoData.length === 0)
-    return <div className="text-4xl">City not found</div>;
+    return <div className="absolute top-auto left-auto text-xl text-[red]/60">Loading....</div>;
+  if (cityname && !geoError && !isGeoLoading && geoData && geoData.length === 0)
+    return <div className="absolute top-auto left-auto bg-surface rounded-lg p-2 leading-8 shadow-xl shadow-[gray]/25">City not found</div>;
   return (
     <div className="absolute top-auto left-auto bg-surface rounded-lg p-2 leading-8 shadow-xl shadow-[gray]/25">
       <ul className="divide-y-2 divide-background" ref={dropdownRef}>

@@ -14,12 +14,12 @@ const ThemeToggler = () => {
     <>
       <div
         className="md:absolute sm:right-6 sm:top-6 toggler-container w-[50px] bg-primary rounded-3xl"
-        onClick={handleToggleTheme}
+        onClick={handleToggleTheme} role="button" tabIndex={0} aria-label="Click to submit"
       >
         <div
           className={`${
             theme === "dark" ? "translate-x-[100%]" : null
-          } bg-opp-background transition-transform ease-linear duration-300 w-[25px] h-[25px] rounded-3xl flex justify-center items-center`}
+          } bg-secondary transition-transform ease-linear duration-300 w-[25px] h-[25px] rounded-3xl flex justify-center items-center`}
         >
           {theme === "dark" ? (
             <MdDarkMode className="text-[black] " />
