@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /* Dark Theme */
+/* Dark Theme */
 :root[data-theme="dark"] {
   --color-primary: #8ab4f8;
   --color-secondary: #a188a6;
@@ -11,6 +12,7 @@
   --color-surface: #1e1e1e;
   --color-text-primary: #ededed;
   --color-text-secondary: #b0b0b0;
+  --color-shadow: rgba(0, 0, 0, 0.6); /* Dark shadow color */
 }
 
 /* Light Theme */
@@ -22,6 +24,7 @@
   --color-surface: #ffffff;
   --color-text-primary: #333333;
   --color-text-secondary: #555555;
+  --color-shadow: rgba(0, 0, 0, 0.2); /* Light shadow color */
 }
 
 @layer base {

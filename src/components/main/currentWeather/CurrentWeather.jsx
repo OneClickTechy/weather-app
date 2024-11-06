@@ -5,6 +5,18 @@ import { kelvintocelcious, kelvintoFahrenheit } from "../../../utils/kelvinto";
 import { deg2dir } from "../../../utils/degreetodirection";
 import { mpstomph } from "../../../utils/speedConverter";
 import { dewConverter } from "../../../utils/dewValue";
+import { WiHumidity } from "react-icons/wi";
+import {
+  FaTemperatureQuarter,
+  FaTemperatureThreeQuarters,
+  FaWind,
+} from "react-icons/fa6";
+import Span from "../../SpanValue";
+import { MdDewPoint, MdNavigation, MdVisibility } from "react-icons/md";
+import { BiSolidTachometer } from "react-icons/bi";
+import LoadingBtn from "../../LoadingBtn";
+import WeatherData from "../../WeatherData";
+import { GiBrainFreeze } from "react-icons/gi";
 
 const CurrentWeather = () => {
   const {
@@ -25,90 +37,115 @@ const CurrentWeather = () => {
       : `${kelvintoFahrenheit(temp)} °F`;
 
   return (
-    <div className="">
-      {isCurrentWeatherLoading && (
-        <div>
-          /* From Uiverse.io by RaunakSpak */ 
-<button
-  disabled="true"
-  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-6 rounded-full shadow-lg flex items-center transition duration-300 transform hover:scale-105 active:scale-95"
->
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    class="animate-spin h-5 w-5 mr-3 text-white"
-  >
-    <circle
-      stroke-width="4"
-      stroke="currentColor"
-      r="10"
-      cy="12"
-      cx="12"
-      class="opacity-25"
-    ></circle>
-    <path
-      d="M4 12a8 8 0 018-8v8H4z"
-      fill="currentColor"
-      class="opacity-75"
-    ></path>
-  </svg>
-  Loading...
-</button>
+    <div className="flex justify-center items-center bg-surface rounded-2xl p-4  md:col-start-1 md:col-end-6">
+      {isCurrentWeatherLoading && <LoadingBtn />}
 
-        </div>
-      )}
       {currentWeatherError && <div>{`Error: ${currentWeatherError}`}</div>}
+
       {!currentWeatherData &&
         !isCurrentWeatherLoading &&
-        !currentWeatherError && <div>Search any city</div>}
+        !currentWeatherError && (
+          <div className="text-4xl flex justify-center items-center">
+            Search any city
+          </div>
+        )}
+
       {currentWeatherData && (
-        <div className="">
-          <p className="">{toLocaleDateAndTime(dt)}</p>
-          <p className="">
+        <div className="flex items-center flex-col gap-2">
+          <p className="text-primary">{toLocaleDateAndTime(dt)}</p>
+          <p className="text-secondary text-4xl">
             {name}, {sys?.country}
           </p>
+          <figure>
+            <img
+              src={`http://openweathermap.org/img/wn/${weather?.[0]?.icon}@2x.png`}
+              alt={weather?.[0]?.description || "weather icon"}
+              className="shadow-2xl rounded-md border border-[white] bg-accent"
+            />
+            <figcaption className="text-center font-semibold">
+              {weather?.[0]?.description || "--"}
+            </figcaption>
+          </figure>
 
-          <img
-            src={`http://openweathermap.org/img/wn/${weather?.[0]?.icon}@2x.png`}
-            alt={weather?.[0]?.description || "weather icon"}
-            className=""
+          <h2 className="text-primary font-bold text-3xl">
+            {getTemperature(main?.temp)}
+          </h2>
+
+          
+          <WeatherData
+            label={"Feels Like"}
+            icon={GiBrainFreeze}
+            iconclass={"text-2xl text-[#fdeb48]"}
+            value={`${getTemperature(main?.feels_like)}`}
           />
 
-          <p>{weather?.[0]?.description || "--"}</p>
+          <WeatherData
+            icon={WiHumidity}
+            iconclass={"text-4xl text-[#4FC3F7]"}
+            label={"Humidity"}
+            value={`${main?.humidity ?? "--"} %`}
+          />
 
-          <h2>{getTemperature(main?.temp)}</h2>
+          <WeatherData
+            label={"Max Temperature"}
+            icon={FaTemperatureThreeQuarters}
+            iconclass={"text-[#FF5722] text-2xl"}
+            value={`${getTemperature(main?.temp_max)}`}
+          />
 
-          <p>Feels like {getTemperature(main?.feels_like)}</p>
-          <p>Humidity: {main?.humidity ?? "--"}%</p>
+          <WeatherData
+            label={"Min Temperature"}
+            icon={FaTemperatureQuarter}
+            iconclass={"text-[#81D4FA] text-2xl"}
+            value={`${getTemperature(main?.temp_min)}`}
+          />
 
-          <p>Max Temperature: {getTemperature(main?.temp_max)}</p>
-          <p>Min Temperature: {getTemperature(main?.temp_min)}</p>
+          <WeatherData
+            label={"Wind Direction"}
+            icon={MdNavigation}
+            iconclass={"text-[#6AB187]"}
+            value={`${deg2dir(wind?.deg) || "--"}`}
+          />
 
-          <p>Wind Direction: {deg2dir(wind?.deg) || "--"}</p>
+          <WeatherData
+            label={"Wind Speed"}
+            icon={FaWind}
+            iconclass={"text-[#48C9B0]"}
+            value={`${
+              unit === "Metric"
+                ? `${wind?.speed?.toFixed(1)} m/s`
+                : `${mpstomph(wind?.speed).toFixed(1)} mph`
+            }`}
+          />
 
-          <p>
-            Wind Speed:{" "}
-            {unit === "Metric"
-              ? `${wind?.speed?.toFixed(1)} m/s`
-              : `${mpstomph(wind?.speed).toFixed(1)} mph`}
-          </p>
+          <WeatherData
+            label={"Pressure"}
+            icon={BiSolidTachometer}
+            iconclass={"text-[#A569BD]"}
+            value={`${main?.pressure ?? "--"} hPa`}
+          />
 
-          <p>Pressure: {main?.pressure ?? "--"} hPa</p>
-          <p>
-            Visibility:{" "}
-            {visibility != null ? `${(visibility / 1000).toFixed(1)} km` : "--"}
-          </p>
-          <p>
-            Dew point:{" "}
-            {dewConverter(
+          <WeatherData
+            label={"Visibility"}
+            icon={MdVisibility}
+            iconclass={"text-[#87CEEB]"}
+            value={
+              visibility != null ? `${(visibility / 1000).toFixed(1)} km` : "--"
+            }
+          />
+
+          <WeatherData
+            label={"Dew point"}
+            icon={MdDewPoint}
+            iconclass={"text-[#00ACC1]"}
+            value={dewConverter(
               unit === "Metric"
                 ? kelvintocelcious(main?.temp)
                 : kelvintoFahrenheit(main?.temp),
               main?.humidity,
               unit === "Imperial"
-            )}{" "}
-          </p>
+            )}
+          />
         </div>
       )}
     </div>

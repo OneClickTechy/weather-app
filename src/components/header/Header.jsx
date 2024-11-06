@@ -7,7 +7,7 @@ import ThemeToggler from "./themeToggler/ThemeToggler";
 const Header = () => {
   const { showResults } = useGeoContext();
   return (
-    <header className="relative flex justify-center items-center p-4 flex-row md:flex-col flex-wrap gap-2">
+    <header className="relative flex justify-center items-center p-4 flex-row md:flex-col flex-wrap gap-2 bg-surface shadow-lg shadow-shadow">
       <Logo />
       <ThemeToggler />
       <div className="">

@@ -10,8 +10,9 @@ export default {
       surface: "var(--color-surface)",
       "text-primary": "var(--color-text-primary)",
       "text-secondary": "var(--color-text-secondary)",
+      shadow: "var(--color-shadow)",
     },
-    extend: {},
   },
+  extend: {},
   plugins: [],
 };

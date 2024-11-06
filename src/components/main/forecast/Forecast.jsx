@@ -15,7 +15,7 @@ const Forecast = () => {
       : `${Math.round(kelvintoFahrenheit(temp))} °F`;
 
   return (
-    <div>
+    <div className="col-start-6 col-end-[-1] bg-surface p-4 rounded-2xl">
       {forecastError && <p>{`Error: ${forecastError}`}</p>}
       {isForecastLoading && <p>Loading....</p>}
       {forecastData && daily && (
@@ -23,11 +23,11 @@ const Forecast = () => {
           <h1>8-day forecast</h1>
           <ul className="">
             {daily.map((item, index) => (
-              <li key={index}>
+              <li key={index} className="flex justify-around">
                 {toLocalDayDate(item.dt)}
-                <figure>
+                <figure className="">
                   <img
-                    src={`http://openweathermap.org/img/wn/${item.weather[0]?.icon}@2x.png`}
+                    src={`http://openweathermap.org/img/wn/${item.weather[0]?.icon}.png`}
                     alt={item.weather?.[0]?.description || "weather icon"}
                     className=""
                   />
