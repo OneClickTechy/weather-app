@@ -17,10 +17,7 @@ export const deg2dir = (deg) => {
     "NW",
     "NNW",
   ];
-  const step1 = deg / 22.5;
-  const step2 = Math.round(step1);
-  const step3 = step2 % 16;
-  const step4 = directions[step3]
-  return step4;
-};
 
+  const directionCode = directions[Math.round(deg / 22.5) % 16];
+  return directionCode;
+};

@@ -3,7 +3,7 @@ const LoadingBtn = () => {
     <div>
       {/* From Uiverse.io by RaunakSpak */}
       <button
-        disabled="true"
+        disabled={true}
         className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-6 rounded-full shadow-lg flex items-center transition duration-300 transform hover:scale-105 active:scale-95"
       >
         <svg
@@ -13,7 +13,7 @@ const LoadingBtn = () => {
           className="animate-spin h-5 w-5 mr-3 text-white"
         >
           <circle
-            stroke-width="4"
+            strokeWwidth="4"
             stroke="currentColor"
             r="10"
             cy="12"
