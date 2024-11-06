@@ -14,12 +14,6 @@ const ThemeToggler = () => {
   };
   return (
     <>
-      {/* <button
-        onClick={handleToggleTheme}
-        className="md:absolute md:right-4 md:top-5"
-      >
-        theme: {theme}
-      </button> */}
       <div
         className="md:absolute sm:right-6 sm:top-6 toggler-container w-[50px] bg-primary rounded-3xl"
         onClick={handleToggleTheme}

@@ -7,9 +7,9 @@ const Logo = () => {
         <span className="text-[#D24F37]">Live</span> Weather
       </p>
       
-      <sup class="relative flex h-3 w-3 justify-center items-center">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D24f37] opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-2 w-2 bg-[#fa3c1a]"></span>
+      <sup className="relative flex h-3 w-3 justify-center items-center">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D24f37] opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#fa3c1a]"></span>
       </sup>
     </div>
   );

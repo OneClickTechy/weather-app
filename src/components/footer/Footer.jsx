@@ -5,23 +5,39 @@ const Footer = () => {
 
   return (
     <footer className="text-text-primary">
-      <div class="footer-content">
+      <div className="footer-content">
         <p>
-          &copy; {year} <span className="text-primary">{"Live Weather"}</span>. All rights reserved.
+          &copy; {year} <span className="text-primary">{"Live Weather"}</span>.
+          All rights reserved.
         </p>
-        <p>This website developed by <a href="https://github.com/OneClickTechy" className="text-primary">Jeyapandi(OneClickTechy)</a></p>
-        <div class="footer-links flex gap-4">
-          <a href="/contact">Contact Us</a>
-        </div>
-        <div class="social-media flex gap-4">
+        <p>
+          This website developed by{" "}
+          <a href="https://github.com/OneClickTechy" className="text-primary">
+            Jeyapandi(OneClickTechy)
+          </a>
+        </p>
+        
+        <div className="social-media flex gap-4">
           <a href="" target="_blank">
             <FaLinkedin />
           </a>{" "}
-          <a href="https://github.com/OneClickTechy" className="" target="_blank">
+          <a
+            href="https://github.com/OneClickTechy"
+            className=""
+            target="_blank"
+          >
             <FaGithub />
           </a>{" "}
         </div>
-        <p>Powered by <a href="https://openweathermap.org/" className="text-secondary font-semibold">openweathermap</a></p>
+        <p>
+          Powered by{" "}
+          <a
+            href="https://openweathermap.org/"
+            className="text-secondary font-semibold"
+          >
+            openweathermap
+          </a>
+        </p>
         <p>
           Disclaimer: Weather data is provided for informational purposes only
           and is subject to change.

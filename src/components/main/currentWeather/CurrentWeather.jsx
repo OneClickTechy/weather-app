@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useGeoContext } from "../../../context/geoContext";
 import { toLocaleDateAndTime } from "../../../utils/time";
 import { kelvintocelcious, kelvintoFahrenheit } from "../../../utils/kelvinto";
@@ -11,7 +10,6 @@ import {
   FaTemperatureThreeQuarters,
   FaWind,
 } from "react-icons/fa6";
-import Span from "../../SpanValue";
 import { MdDewPoint, MdNavigation, MdVisibility } from "react-icons/md";
 import { BiSolidTachometer } from "react-icons/bi";
 import LoadingBtn from "../../LoadingBtn";
@@ -39,18 +37,6 @@ const CurrentWeather = () => {
 
   return (
     <div className="primary-container flex justify-center items-center bg-surface rounded-2xl p-4  md:col-start-1 md:col-end-6 shadow-xl shadow-shadow">
-      {isCurrentWeatherLoading && <LoadingBtn />}
-
-      {currentWeatherError && <div>{`Error: ${currentWeatherError}`}</div>}
-
-      {!currentWeatherData &&
-        !isCurrentWeatherLoading &&
-        !currentWeatherError && (
-          <div className="text-4xl flex justify-center items-center">
-            Search any city
-          </div>
-        )}
-
       {currentWeatherData && (
         <div className="secondary container flex flex-wrap justify-center items-center  gap-2 w-full ">
           <div className="self-start bg-background  flex justify-center items-center flex-col p-4 rounded-2xl">

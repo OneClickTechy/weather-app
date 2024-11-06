@@ -3,9 +3,7 @@ import { kelvintocelcious, kelvintoFahrenheit } from "../../../utils/kelvinto";
 import { toLocalDayDate } from "../../../utils/time";
 
 const Forecast = () => {
-  const { unit, setUnit, forecastData, forecastError, isForecastLoading } =
-    useGeoContext();
-  //   console.log(forecastData, forecastError, isForecastLoading);
+  const { unit, forecastData } = useGeoContext();
   const { daily } = forecastData || [];
   console.log(daily ? daily[0]?.weather[0]?.icon : null);
   // Unit conversion helper
@@ -16,8 +14,6 @@ const Forecast = () => {
 
   return (
     <div className="w-full col-start-6 col-end-[-1] bg-surface p-4 rounded-2xl shadow-xl shadow-shadow">
-      {forecastError && <p>{`Error: ${forecastError}`}</p>}
-      {isForecastLoading && <p>Loading....</p>}
       {forecastData && daily && (
         <>
           <h1 className="text-4xl text-center font-bold ">8 day forecast</h1>
