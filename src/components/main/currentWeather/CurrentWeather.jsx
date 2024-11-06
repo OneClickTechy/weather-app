@@ -52,8 +52,8 @@ const CurrentWeather = () => {
         )}
 
       {currentWeatherData && (
-        <div className="secondary container flex items-center  gap-2 w-full">
-          <div className="bg-background  flex justify-center items-center flex-col p-4 rounded-2xl">
+        <div className="secondary container flex flex-wrap justify-center items-center  gap-2 w-full">
+          <div className="self-start bg-background  flex justify-center items-center flex-col p-4 rounded-2xl">
             <p className="text-primary">{toLocaleDateAndTime(dt)}</p>
             <p className="text-secondary text-4xl">
               {name}, {sys?.country}
@@ -80,7 +80,7 @@ const CurrentWeather = () => {
               value={`${getTemperature(main?.feels_like)}`}
             />
           </div>
-          <div className="leading-10 bg-background flex justify-center items-center flex-wrap max-w-[60%] gap-4 p-4 rounded-2xl">
+          <div className="leading-10 bg-background flex justify-center items-center flex-wrap md:max-w-[60%] gap-4 sm:p-4 py-4 rounded-2xl w-full">
             <WeatherData
               icon={WiHumidity}
               iconclass={"text-4xl text-[#4FC3F7]"}
