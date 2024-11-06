@@ -20,7 +20,7 @@ const ThemeToggler = () => {
       >
         <div
           className={`${
-            !isOn ? "translate-x-[100%]" : null
+            theme === "dark" ? "translate-x-[100%]" : null
           } transition-transform ease-linear duration-300 w-[25px] h-[25px] bg-text-primary rounded-3xl flex justify-center items-center`}
         >
           {!isOn ? (
