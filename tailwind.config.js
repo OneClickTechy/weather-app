@@ -11,6 +11,7 @@ export default {
       "text-primary": "var(--color-text-primary)",
       "text-secondary": "var(--color-text-secondary)",
       shadow: "var(--color-shadow)",
+      "opp-background": "var(--color-opp-surface)",
     },
   },
   extend: {},

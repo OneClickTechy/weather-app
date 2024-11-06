@@ -13,6 +13,7 @@
   --color-text-primary: #ededed;
   --color-text-secondary: #b0b0b0;
   --color-shadow: rgba(0, 0, 0, 0.6); /* Dark shadow color */
+  --color-opp-surface: #ffffff;
 }
 
 /* Light Theme */
@@ -25,6 +26,7 @@
   --color-text-primary: #333333;
   --color-text-secondary: #555555;
   --color-shadow: rgba(0, 0, 0, 0.2); /* Light shadow color */
+  --color-opp-surface: #1e1e1e;
 }
 
 @layer base {
