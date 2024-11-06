@@ -20,12 +20,12 @@ const Forecast = () => {
       {isForecastLoading && <p>Loading....</p>}
       {forecastData && daily && (
         <>
-          <h1>8-day forecast</h1>
-          <ul className="">
+          <h1 className="text-4xl text-center font-bold ">8 day forecast</h1>
+          <ul className=" divide-y-2 divide-shadow">
             {daily.map((item, index) => (
-              <li key={index} className="flex justify-around">
+              <li key={index} className="flex justify-evenly items-center">
                 {toLocalDayDate(item.dt)}
-                <figure className="">
+                <figure className="flex justify-evenly items-center">
                   <img
                     src={`http://openweathermap.org/img/wn/${item.weather[0]?.icon}.png`}
                     alt={item.weather?.[0]?.description || "weather icon"}
