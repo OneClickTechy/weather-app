@@ -19,11 +19,9 @@ import { BsFillSunriseFill, BsFillSunsetFill } from "react-icons/bs";
 
 const CurrentWeather = () => {
   const { unit, currentWeatherData } = useGeoContext();
-  console.log(currentWeatherData);
   // Destructure data with optional chaining
   const { dt, name, sys, weather, main, wind, visibility } =
     currentWeatherData || {};
-  console.log(wind.deg);
   // Unit conversion helper
   const getTemperature = (temp) =>
     unit === "Metric"

@@ -16,8 +16,7 @@ const SearchDropdown = () => {
 
   useOutsideClick(dropdownRef, () => setShowResults(!showResults));
 
-  //   console.log({ geoData, geoError, isGeoLoading });
-  //   console.log(typeof geoData);
+  
 
   if (geoError) return <div className="">{geoError}</div>;
   if (isGeoLoading)

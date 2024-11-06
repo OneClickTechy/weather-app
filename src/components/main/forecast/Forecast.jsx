@@ -5,7 +5,6 @@ import { toLocalDayDate } from "../../../utils/time";
 const Forecast = () => {
   const { unit, forecastData } = useGeoContext();
   const { daily } = forecastData || [];
-  console.log(daily ? daily[0]?.weather[0]?.icon : null);
   // Unit conversion helper
   const getTemperature = (temp) =>
     unit === "Metric"

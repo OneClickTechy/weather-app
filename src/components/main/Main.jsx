@@ -3,6 +3,7 @@ import UnitToggler from "../header/unitToggler/UnitToggler";
 import LoadingBtn from "../LoadingBtn";
 import CurrentWeather from "./currentWeather/CurrentWeather";
 import Forecast from "./forecast/Forecast";
+import HourlyWeather from "./hourlyWeather/HourlyWeather";
 
 const Main = () => {
   const {
@@ -12,10 +13,15 @@ const Main = () => {
     forecastData,
     forecastError,
     isForecastLoading,
+    hourlyData,
+    hourlyError,
+    isHourlyLoading,
   } = useGeoContext();
-  console.log(currentWeatherData);
+
+  const hourlyWeatherData = hourlyData?.hourly?.slice(0, 9) || [];
+
   return (
-    <main className="grow min-h-screen w-full rounded-lg p-4 lg:grid lg:grid-cols-8 lg:grid-flow-col flex flex-col justify-center sm:items-start justify-items-center content-center gap-2">
+    <main className="grow min-h-screen w-full rounded-lg p-4 lg:grid lg:grid-cols-8  lg:grid-flow-col flex flex-col justify-center sm:items-start justify-items-center content-center gap-2">
       {!currentWeatherData &&
         !isCurrentWeatherLoading &&
         !currentWeatherError && (
@@ -26,16 +32,23 @@ const Main = () => {
       {isCurrentWeatherLoading && <LoadingBtn />}
 
       {currentWeatherError && <div>{`Error: ${currentWeatherError}`}</div>}
-      {currentWeatherData ? 
-      <>
-      <UnitToggler />
-      <CurrentWeather /> 
-      </>
-      : null}
+      {currentWeatherData ? (
+        <>
+          <UnitToggler />
+          <CurrentWeather />
+        </>
+      ) : null}
+
+      {isHourlyLoading && <p>Loading....</p>}
+      {hourlyError && <p>{`Error: ${hourlyError}`}</p>}
+      {hourlyData && hourlyWeatherData && hourlyWeatherData.length > 0 ? (
+        <HourlyWeather data={hourlyWeatherData} />
+      ) : null}
 
       {forecastError && <p>{`Error: ${forecastError}`}</p>}
       {isForecastLoading && <p>Loading....</p>}
       {forecastData ? <Forecast /> : null}
+
     </main>
   );
 };

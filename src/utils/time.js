@@ -23,7 +23,3 @@ export const toLocalTime = (dt) => {
   return formattedDate;
 };
 
-toLocalTime(1730895935);
-// Usage
-// toLocaleDateAndTime(1730826000);
-// toLocalDayDate(1730826000);
