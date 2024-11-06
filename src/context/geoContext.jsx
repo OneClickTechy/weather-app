@@ -14,12 +14,12 @@ export const GeoProvider = ({ children }) => {
   const [geoCoords, setGeoCoords] = useState({});
   const [showResults, setShowResults] = useState(false);
 
-  const [unit, setUnit] = useState("Imperial"); // "Metric" for °C, m/s; "Imperial" for °F, mph
+  const [unit, setUnit] = useState("Metric"); // "Metric" for °C, m/s; "Imperial" for °F, mph
 
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchCity(cityname);
-    if(cityname){
+    if (cityname) {
       setShowResults(true);
     }
   };
@@ -33,6 +33,15 @@ export const GeoProvider = ({ children }) => {
     setSearchCity("");
     setShowResults(false);
   };
+
+  const handleUnit = (unitToChange) => {
+    if (unit === unitToChange) {
+      return;
+    } else {
+      setUnit(unitToChange);
+    }
+  };
+
   const {
     data: geoData,
     error: geoError,
@@ -73,6 +82,7 @@ export const GeoProvider = ({ children }) => {
     isForecastLoading,
     unit,
     setUnit,
+    handleUnit,
   };
   return (
     <geoContext.Provider value={contextValue}>{children}</geoContext.Provider>

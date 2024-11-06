@@ -28,10 +28,14 @@
   --color-shadow: rgba(0, 0, 0, 0.2); /* Light shadow color */
   --color-opp-surface: #1e1e1e;
 }
-
+@layer components{
+  .btn-primary {
+    @apply transition-colors duration-300 ease-in-out bg-primary text-text-primary px-4 py-2 rounded-lg hover:bg-secondary hover:text-surface;
+  }
+}
 @layer base {
   button {
-    @apply transition-colors duration-300 ease-in-out bg-primary text-text-primary px-4 py-2 rounded-lg hover:bg-secondary hover:text-surface;
+    
   }
   input[type="text"] {
     @apply transition-colors duration-300 ease-in-out border-primary border rounded-md p-[10px] bg-surface;
