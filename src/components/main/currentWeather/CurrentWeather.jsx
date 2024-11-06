@@ -1,5 +1,5 @@
 import { useGeoContext } from "../../../context/geoContext";
-import { toLocaleDateAndTime } from "../../../utils/time";
+import { toLocaleDateAndTime, toLocalTime } from "../../../utils/time";
 import { kelvintocelcious, kelvintoFahrenheit } from "../../../utils/kelvinto";
 import { deg2dir } from "../../../utils/degreetodirection";
 import { mpstomph } from "../../../utils/speedConverter";
@@ -21,8 +21,6 @@ const CurrentWeather = () => {
   const {
     unit,
     currentWeatherData,
-    currentWeatherError,
-    isCurrentWeatherLoading,
   } = useGeoContext();
   console.log(currentWeatherData)
   // Destructure data with optional chaining
@@ -38,7 +36,7 @@ const CurrentWeather = () => {
   return (
     <div className="primary-container flex justify-center items-center bg-surface rounded-2xl p-4  md:col-start-1 md:col-end-6 shadow-xl shadow-shadow">
       {currentWeatherData && (
-        <div className="secondary container flex flex-wrap justify-center items-center  gap-2 w-full ">
+        <div className="secondary-container flex flex-wrap justify-center items-center  gap-2 w-full ">
           <div className="self-start bg-background  flex justify-center items-center flex-col p-4 rounded-2xl">
             <p className="text-primary">{toLocaleDateAndTime(dt)}</p>
             <p className="text-secondary text-4xl">
@@ -137,8 +135,8 @@ const CurrentWeather = () => {
               )}
             />
 
-            <WeatherData label={"Sunrise"} icon={BsFillSunriseFill} iconclass={"text-[#FFD180] text-2xl"} value={`${sys.sunrise}`}/>
-            <WeatherData label={"Sunset"} icon={BsFillSunsetFill} iconclass={"text-[#FFB74D] text-2xl"} value={`${sys.sunset}`}/>
+            <WeatherData label={"Sunrise"} icon={BsFillSunriseFill} iconclass={"text-[#FFD180] text-2xl"} value={`${toLocalTime(sys.sunrise)}`}/>
+            <WeatherData label={"Sunset"} icon={BsFillSunsetFill} iconclass={"text-[#FFB74D] text-2xl"} value={`${toLocalTime(sys.sunset)}`}/>
           </div>
         </div>
       )}

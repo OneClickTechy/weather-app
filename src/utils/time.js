@@ -16,6 +16,14 @@ export const toLocalDayDate = (dt) => {
   const formattedDate = format(utcDate, "EEE, MMM dd");
   return formattedDate;
 };
+
+export const toLocalTime = (dt) => {
+  const utcDate = new Date(dt * 1000);
+  const formattedDate = format(utcDate, "hh:mma");
+  return formattedDate;
+};
+
+toLocalTime(1730895935);
 // Usage
 // toLocaleDateAndTime(1730826000);
 // toLocalDayDate(1730826000);
