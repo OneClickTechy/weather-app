@@ -19,7 +19,7 @@ const ThemeToggler = () => {
         <div
           className={`${
             theme === "dark" ? "translate-x-[100%]" : null
-          } bg-secondary transition-transform ease-linear duration-300 w-[25px] h-[25px] rounded-3xl flex justify-center items-center`}
+          } bg-accent transition-transform ease-linear duration-300 w-[25px] h-[25px] rounded-3xl flex justify-center items-center`}
         >
           {theme === "dark" ? (
             <MdDarkMode className="text-[black] " />
