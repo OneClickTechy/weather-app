@@ -21,7 +21,7 @@ const Main = () => {
   const hourlyWeatherData = hourlyData?.hourly?.slice(0, 9) || [];
 
   return (
-    <main className="grow min-h-screen w-full rounded-lg p-4 lg:grid lg:grid-cols-8  lg:grid-flow-col flex flex-col justify-center sm:items-start justify-items-center content-center gap-2">
+    <main className="flex-1 grid gap-4">
       {!currentWeatherData &&
         !isCurrentWeatherLoading &&
         !currentWeatherError && (

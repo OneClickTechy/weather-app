@@ -7,7 +7,7 @@ const App = () => {
   
   const { showResults } = useGeoContext();
   return (
-    <div className="transition-colors duration-300 ease-in-out bg-background text-text-primary flex flex-col w-full min-h-screen">
+    <div className="transition-colors duration-300 ease-in-out bg-background text-text-primary flex flex-col w-full min-h-screen gap-4">
       <Header />
       <Main />
       <Footer />

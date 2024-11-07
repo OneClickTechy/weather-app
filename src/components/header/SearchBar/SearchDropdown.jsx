@@ -18,9 +18,9 @@ const SearchDropdown = () => {
 
   
 
-  if (geoError) return <div className="">{geoError}</div>;
+  if (geoError) return <div className="absolute top-auto left-auto text-xl text-[red]/60">{geoError}</div>;
   if (isGeoLoading)
-    return <div className="absolute top-auto left-auto text-xl text-[red]/60">Loading....</div>;
+    return <div className="absolute top-auto left-auto bg-surface rounded-lg p-2 leading-8 shadow-xl shadow-[gray]/25">Loading....</div>;
   if (cityname && !geoError && !isGeoLoading && geoData && geoData.length === 0)
     return <div className="absolute top-auto left-auto bg-surface rounded-lg p-2 leading-8 shadow-xl shadow-[gray]/25">City not found</div>;
   return (

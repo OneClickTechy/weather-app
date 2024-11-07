@@ -6,10 +6,8 @@
 :root[data-theme="dark"] {
   --color-btn-primary-bg: #083c91;
   --color-btn-primary-text: #ffffff;
-  --color-btn-secondary-bg: #d9e3f0; /* Light, softer shade */
---color-btn-secondary-text: #083c91; /* Matches primary background */
-
-
+  --color-btn-secondary-bg: #d9e3f0;
+  --color-btn-secondary-text: #083c91;
   --color-primary: #083c91;
   --color-secondary: #a188a6;
   --color-accent: #f28c8c;
@@ -17,7 +15,7 @@
   --color-surface: #1e1e1e;
   --color-text-primary: #ffffff;
   --color-text-secondary: #b0b0b0;
-  --color-shadow: rgba(0, 0, 0, 0.6); /* Dark shadow color */
+  --color-shadow: rgba(0, 0, 0, 0.6);
   --color-opp-surface: #ffffff;
 }
 
@@ -25,18 +23,16 @@
 :root[data-theme="light"] {
   --color-btn-primary-bg: #061323;
   --color-btn-primary-text: #bfbfbf;
-  --color-btn-secondary-bg: #bfbfbf; /* Light, neutral shade to contrast primary */
---color-btn-secondary-text: #061323; /* Matches primary background for consistency */
-
-
+  --color-btn-secondary-bg: #bfbfbf;
+  --color-btn-secondary-text: #061323;
   --color-primary: #061323;
   --color-secondary: #bfa8ff;
   --color-accent: #7a0a00;
   --color-background: #ffffff;
   --color-surface: #cccccc;
   --color-text-primary: #000000;
-  --color-text-secondary: #3800d1;
-  --color-shadow: rgba(0, 0, 0, 0.2); /* Light shadow color */
+  --color-text-secondary: #1E0070;
+  --color-shadow: rgba(0, 0, 0, 0.2);
   --color-opp-surface: #1e1e1e;
 }
 @layer components {

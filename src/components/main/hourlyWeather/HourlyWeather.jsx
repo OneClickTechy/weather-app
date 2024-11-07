@@ -10,13 +10,14 @@ const HourlyWeather = ({ data }) => {
   console.log(data);
   const { unit } = useGeoContext();
   console.log(unit);
-  return (
-    <ul className="flex sm:justify-center gap-2 sm:items-center md:gap-4 bg-surface rounded-2xl shadow-xl shadow-shadow p-4 md:row-start-2 md:row-end-2 lg:place-self-end lg:self-end lg:justify-self-center lg:col-start-1 lg:col-end-6 overflow-x-auto text-xs">
+  return (<div className="bg-background">
+    <h2 className=" text-2xl text-center text-text-primary font-semibold">Hourly Outlook</h2>
+    <ul className="bg-surface flex flex-wrap justify-between p-4 gap-4">
       {data &&
         data.length &&
         data.map((list, index) => (
-          <li key={index}>
-            <p>{toLocalTime(list.dt)}</p>
+          <li key={index} className="flex flex-col justify-center items-center">
+            <p className="text-text-secondary">{toLocalTime(list.dt)}</p>
 
             <img
               src={`http://openweathermap.org/img/wn/${list.weather?.[0]?.icon}.png`}
@@ -27,6 +28,7 @@ const HourlyWeather = ({ data }) => {
           </li>
         ))}
     </ul>
+    </div>
   );
 };
 
