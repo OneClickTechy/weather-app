@@ -22,7 +22,7 @@ const Forecast = () => {
                 {toLocalDayDate(item.dt)}
                 <figure className="flex justify-evenly items-center">
                   <img
-                    src={`http://openweathermap.org/img/wn/${item.weather[0]?.icon}.png`}
+                    src={`https://openweathermap.org/img/wn/${item.weather[0]?.icon}.png`}
                     alt={item.weather?.[0]?.description || "weather icon"}
                     className=""
                   />

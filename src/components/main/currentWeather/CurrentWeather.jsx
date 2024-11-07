@@ -39,7 +39,7 @@ const CurrentWeather = () => {
             </p>
             <figure>
               <img
-                src={`http://openweathermap.org/img/wn/${weather?.[0]?.icon}@2x.png`}
+                src={`https://openweathermap.org/img/wn/${weather?.[0]?.icon}@2x.png`}
                 alt={weather?.[0]?.description || "weather icon"}
                 className="shadow-2xl rounded-md border border-[white] bg-accent"
               />
