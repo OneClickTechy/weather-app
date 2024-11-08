@@ -12,7 +12,6 @@ import {
 } from "react-icons/fa6";
 import { MdDewPoint, MdNavigation, MdVisibility } from "react-icons/md";
 import { BiSolidTachometer } from "react-icons/bi";
-import LoadingBtn from "../../LoadingBtn";
 import WeatherData from "../../WeatherData";
 import { GiBrainFreeze } from "react-icons/gi";
 import { BsFillSunriseFill, BsFillSunsetFill } from "react-icons/bs";
@@ -29,10 +28,10 @@ const CurrentWeather = () => {
       : `${kelvintoFahrenheit(temp)} °F`;
 
   return (
-    <div className="flex flex-col lg:flex-row gap-8">
+    <div className="current-weather lg:justify-start  flex flex-col lg:flex-row gap-8 lg:row-start-2 lg:row-end-2 lg:col-start-1 lg:items-center">
       {currentWeatherData && (
         <>
-          <div className="flex flex-col gap-2 justify-center items-center bg-surface rounded-2xl leading-6 p-4 ">
+          <div className="order-1 flex flex-col gap-2  lg:h-fit justify-center items-center lg:justify-start bg-surface rounded-2xl leading-6 p-4">
             <p className="text-text-primary text-nowrap">{toLocaleDateAndTime(dt)}</p>
             <p className="text-text-secondary text-4xl font-semibold text-nowrap">
               {name}, {sys?.country}
@@ -59,7 +58,7 @@ const CurrentWeather = () => {
               value={`${getTemperature(main?.feels_like)}`}
             />
           </div>
-          <div className="bg-surface leading-10 flex  flex-wrap justify-center gap-4 md:gap-8  p-4 rounded-2xl">
+          <div className="order-2 lg:leading-none  bg-surface leading-10 flex  flex-wrap lg:content-center justify-center lg:max-w-[50%] gap-4 lg:items-start p-4 rounded-2xl  lg:h-fit">
             <WeatherData
               icon={WiHumidity}
               iconclass={`text-4xl text-[#4FC3F7]`}

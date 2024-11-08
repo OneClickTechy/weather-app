@@ -1,7 +1,7 @@
 import { TiWeatherPartlySunny } from "react-icons/ti";
 const Logo = () => {
   return (
-    <div className="text-text-primary-primary md:absolute md:left-4 md:top-4 flex justify-center items-center gap-2 p-2">
+    <div className="text-text-primary md:absolute md:left-4 md:top-4 flex justify-center items-center gap-2 p-2">
       <TiWeatherPartlySunny className="lg:text-4xl" />
       <p className="lg:text-2xl font-bold">
         <span className="text-accent">Live</span> Weather

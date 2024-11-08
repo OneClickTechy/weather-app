@@ -9,7 +9,7 @@ const WeatherData = ({
   unit = "",
 }) => {
   return (
-    <p className="flex justify-center items-center text-nowrap ">
+    <p className="flex justify-center items-center text-nowrap h-fit">
       <Icon className={iconclass} style={iconstyle} />
       &nbsp;
       {label}:&nbsp; <Span value={`${value ?? "--"} ${unit}`} />

@@ -21,11 +21,11 @@ const Main = () => {
   const hourlyWeatherData = hourlyData?.hourly?.slice(0, 9) || [];
 
   return (
-    <main className="flex-1 grid gap-4">
+    <main className="flex-1 grid gap-4 p-4 ">
       {!currentWeatherData &&
         !isCurrentWeatherLoading &&
         !currentWeatherError && (
-          <div className="text-4xl font-semibold col-start-1 col-end-[-1]  flex justify- items-center">
+          <div className=" text-4xl font-semibold col-start-1 col-end-[-1]  flex justify- items-center">
             <h1 className="text-center w-full">Search any city name</h1>
           </div>
         )}

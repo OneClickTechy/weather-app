@@ -19,7 +19,7 @@ export const toLocalDayDate = (dt) => {
 
 export const toLocalTime = (dt) => {
   const utcDate = new Date(dt * 1000);
-  const formattedDate = format(utcDate, "hh:mma");
+  const formattedDate = format(utcDate, "hh:mm a");
   return formattedDate;
 };
 

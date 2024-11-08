@@ -8,7 +8,7 @@ const HourlyWeather = ({ data }) => {
       ? `${kelvintocelcious(temp)} °C`
       : `${kelvintoFahrenheit(temp)} °F`;
   const { unit } = useGeoContext();
-  return (<div className="bg-background">
+  return (<div className="bg-background lg:row-start-3 lg:row-end-3 lg:col-span-2 lg:col-start-1 ">
     <h2 className=" text-2xl text-center text-text-primary font-semibold">Hourly Outlook</h2>
     <ul className="bg-surface flex flex-wrap justify-between p-4 gap-4">
       {data &&
